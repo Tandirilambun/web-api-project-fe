@@ -3,13 +3,15 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --test-var: blue;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-plus-jakarta-sans: var(--font-plus-jakarta-sans), sans-serif;
+  --font-montserrat: var(--font-montserrat), sans-serif;
+  --font-sans: var(--font-plus-jakarta-sans), sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +24,9 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+.SignGroup .isActive {
+  background-color: #fff;
+  color: black;
 }

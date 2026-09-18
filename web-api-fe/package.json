@@ -9,9 +9,12 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "css.gg": "^2.1.4",
     "next": "16.3.5",
+    "phosphor-icons": "^1.4.2",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "react-hook-form": "^7.88.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
