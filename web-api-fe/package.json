@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@deemlol/next-icons": "^0.2.7",
     "css.gg": "^2.1.4",
     "next": "16.3.5",
     "phosphor-icons": "^1.4.2",

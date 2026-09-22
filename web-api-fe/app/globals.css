@@ -30,3 +30,44 @@ body {
   background-color: #fff;
   color: black;
 }
+
+.SignForm.active {
+  display: block;
+  animation: ScaleEntrance 150ms;
+}
+.SignForm.inactive {
+  display: none;
+  transform: scale(0);
+  animation: ScaleExit 150ms;
+}
+
+@keyframes ScaleEntrance {
+  0% {
+    scale: (0);
+  }
+  50% {
+    scale: 0.7;
+  }
+  75% {
+    scale: 1.1;
+  }
+  100% {
+    scale: 1;
+  }
+}
+
+@keyframes ScaleExit {
+  0% {
+    scale: (1);
+  }
+  50% {
+    scale: 1.1;
+  }
+  75% {
+    scale: 0.7;
+  }
+  100% {
+    scale: 0;
+  }
+}
+
