@@ -1,25 +1,18 @@
-export default function Input({
-  type,
-  name,
-  id,
-  placeholder,
-  className,
-}: {
-  type: string;
-  name: string;
-  id: string;
-  placeholder: string;
-  className: string;
-}) {
-  return (
+import { forwardRef } from "react";
+import { InputProps } from "@/lib/definition/definitionType";
+
+const Input = forwardRef<HTMLInputElement, InputProps>(
+  ({ error, className, ...prop }, ref) => {
+    return (
     <>
       <input
-        type={type}
-        name={name}
-        id={id}
-        placeholder={placeholder}
-        className={className}
+        ref={ref}
+        className={`${className} ${error ? "border-red-400" : ""}`}
+        {...prop}
       />
     </>
-  );
-}
+  )}
+);
+
+Input.displayName = "Input";
+export default Input;

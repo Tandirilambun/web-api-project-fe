@@ -26,48 +26,90 @@ body {
   color: var(--foreground);
 }
 
+.SignGroup {
+  position: relative;
+}
+
+button {
+  cursor: pointer;
+}
+
+.sign-slider {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: calc(50% - 3px);
+  height: calc(100% - 6px);
+  background: #fff;
+  border-radius: 9px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sign-slider.active-left {
+  transform: translateX(0%);
+}
+
+.sign-slider.active-right {
+  transform: translateX(100%);
+}
+
+.SignGroup .sign-tab {
+  position: relative;
+  z-index: 1;
+  transition: color 0.2s ease;
+}
+
 .SignGroup .isActive {
-  background-color: #fff;
   color: black;
 }
 
 .SignForm.active {
   display: block;
-  animation: ScaleEntrance 150ms;
+  animation: formFadeIn 0.35s ease-out;
 }
+
 .SignForm.inactive {
   display: none;
-  transform: scale(0);
-  animation: ScaleExit 150ms;
 }
 
-@keyframes ScaleEntrance {
-  0% {
-    scale: (0);
-  }
-  50% {
-    scale: 0.7;
-  }
-  75% {
-    scale: 1.1;
-  }
-  100% {
-    scale: 1;
-  }
+.form-fade-up,
+.validation-group {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: formFadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-@keyframes ScaleExit {
-  0% {
-    scale: (1);
+@keyframes formFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
   }
-  50% {
-    scale: 1.1;
-  }
-  75% {
-    scale: 0.7;
-  }
-  100% {
-    scale: 0;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
+@keyframes formFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+input:focus {
+  outline: 0;
+}
+
+input:invalid {
+  outline: 1px solid red;
+  outline-offset: 1px;
+}
+input[type="checkbox"] {
+  accent-color: black; /* Changes both background and checkmark color */
+}
