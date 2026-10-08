@@ -3,12 +3,23 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --test-var: blue;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-atlas-blue: #003092;
+  --color-tropical-teal: #00879e;
+  --color-honey-orange: #ffab5b;
+  --color-vanilla-silk: #fff2db;
+
+  --color-danger :  #cc3300;
+  --color-danger-bg :  #ff9966;
+  --color-warning :  #ffcc00;
+  --color-warning-bg :  #ffcc66;
+  --color-success :  	#339900;
+  --color-success-bg :  #99cc33;
+
   --font-plus-jakarta-sans: var(--font-plus-jakarta-sans), sans-serif;
   --font-montserrat: var(--font-montserrat), sans-serif;
   --font-sans: var(--font-plus-jakarta-sans), sans-serif;
@@ -112,4 +123,44 @@ input:invalid {
 }
 input[type="checkbox"] {
   accent-color: black; /* Changes both background and checkmark color */
+}
+
+.alert-component{
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  opacity: 0;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.135);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.alert-component--open{
+  animation: alertFadeIn 0.5s forwards;
+}
+
+.alert-component--close{
+  animation: alertFadeOut 0.5s forwards;
+}
+
+@keyframes alertFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) translateX(-50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) translateX(-50%);
+  }
+}
+
+@keyframes alertFadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0) translateX(-50%);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px) translateX(-50%);
+  }
 }

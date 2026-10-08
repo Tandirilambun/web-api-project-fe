@@ -10,12 +10,15 @@
   },
   "dependencies": {
     "@deemlol/next-icons": "^0.2.7",
+    "@tanstack/react-query": "^5.104.0",
+    "async-mutex": "^0.5.0",
     "css.gg": "^2.1.4",
     "next": "16.3.5",
     "phosphor-icons": "^1.4.2",
     "react": "19.2.8",
     "react-dom": "19.2.8",
-    "react-hook-form": "^7.88.0"
+    "react-hook-form": "^7.88.0",
+    "zustand": "^5.0.15"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

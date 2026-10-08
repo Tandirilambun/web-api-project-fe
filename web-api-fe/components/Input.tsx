@@ -1,5 +1,5 @@
 import { forwardRef } from "react";
-import { InputProps } from "@/lib/definition/definitionType";
+import { InputProps } from "@/shared/lib/definition/definitionType";
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ error, className, ...prop }, ref) => {

@@ -1,13 +1,14 @@
 import Label from "@/components/Label";
 import Input from "@/components/Input";
-import InputGroup from "@/app/login/components/InputGroup";
+import InputGroup from "@/features/authentication/components/InputGroup";
 import InputPassword from "@/components/InputPassword";
 import Button from "@/components/Button";
-import { SignFormType } from "@/lib/definition/definitionType";
+import { SignFormType } from "../type";
 import { Google } from "@deemlol/next-icons";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { loginUser } from "@/lib/AuthService";
-import { LoginViewModel } from "@/lib/definition/definitionType";
+import { LoginPayload } from "../type";
+import { useLogin } from "../api/auth.api";
+import { useSearchParams, useRouter } from "next/navigation";
 
 export default function SignInForm({ isActive, signclick }: SignFormType) {
   const {
@@ -17,11 +18,17 @@ export default function SignInForm({ isActive, signclick }: SignFormType) {
     clearErrors,
     setError,
     formState: { errors },
-  } = useForm<LoginViewModel>();
+  } = useForm<LoginPayload>();
 
-  const LoginSubmit: SubmitHandler<LoginViewModel> = async (data) => {
+  const login = useLogin();
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const LoginSubmit: SubmitHandler<LoginPayload> = async (data) => {
     try {
-      const res = await loginUser(data);
+      await login.mutateAsync(data);
+      const from = searchParams.get("from");
+      router.replace(from ?? "/dashboard");
     } catch (error) {
       setError("root", {
         message:
@@ -39,7 +46,7 @@ export default function SignInForm({ isActive, signclick }: SignFormType) {
   return (
     <div
       id="SignInForm"
-      className={`SignForm ${isActive == "SignIn" ? "active" : "inactive"} h-full px-48 mt-24`}
+      className={`SignForm ${isActive == "SignIn" ? "active" : "inactive"} h-full px-[64px] mt-24`}
     >
       <div className="flex flex-col h-full">
         <div className="form-fade-up" style={{ animationDelay: "0ms" }}>

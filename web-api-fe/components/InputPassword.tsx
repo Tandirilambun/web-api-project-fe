@@ -4,7 +4,7 @@ import { Eye, EyeOff } from "@deemlol/next-icons";
 import { forwardRef } from "react";
 import Input from "./Input";
 import Button from "./Button";
-import { InputProps } from "@/lib/definition/definitionType";
+import { InputProps } from "@/shared/lib/definition/definitionType";
 
 
 

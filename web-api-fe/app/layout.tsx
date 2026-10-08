@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Montserrat } from "next/font/google";
 import "./globals.css";
+import { Providers } from "./provider";
+import { AlertBootstrap } from "@/shared/components/alertBootstrap";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta-sans",
@@ -22,7 +24,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${plusJakartaSans.variable} ${montserrat.variable} h-full antialiased`}
     >
-      <body className="w-full h-full">{children}</body>
+      <body className="w-full h-full">
+        <Providers>
+          < AlertBootstrap />
+          {children}
+        </Providers>
+      </body>
     </html>
   );
 }
